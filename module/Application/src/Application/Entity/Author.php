@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Author
  *
- * @ORM\Table(name="author", uniqueConstraints={@ORM\UniqueConstraint(name="author_author_key", columns={"author"})})
+ * @ORM\Table(name="author", uniqueConstraints={@ORM\UniqueConstraint(name="author_name_key", columns={"name"})})
  * @ORM\Entity
  */
 class Author
@@ -19,15 +19,22 @@ class Author
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="author_id_seq", allocationSize=1, initialValue=1)
+     * @Annotation\Type("Zend\Form\Element\Hidden")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=64, nullable=false)
+     * @ORM\Column(name="name", type="string", length=64, nullable=false)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Required({"required" : "true"})
+     * @Annotation\Filter({"name" : "StripTags"})
+     * @Annotation\Attributes({"id" : "name", "class" : "form-control", "required" : "required"})
+     * @Annotation\Options({"label" : "Author"})
+     * @Annotation\Validator({"name" : "StringLength", "options" : {"min" : 11, "max" : "64"}})
      */
-    private $author;
+    private $name;
 
 
 
@@ -42,26 +49,26 @@ class Author
     }
 
     /**
-     * Set author.
+     * Set name.
      *
-     * @param string $author
+     * @param string $name
      *
      * @return Author
      */
-    public function setAuthor($author)
+    public function setName($name)
     {
-        $this->author = $author;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get author.
+     * Get name.
      *
      * @return string
      */
-    public function getAuthor()
+    public function getName()
     {
-        return $this->author;
+        return $this->name;
     }
 }
