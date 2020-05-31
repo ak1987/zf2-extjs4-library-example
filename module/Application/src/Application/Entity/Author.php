@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Form\Annotation;
 
 /**
  * Author
@@ -35,6 +36,13 @@ class Author
      * @Annotation\Validator({"name" : "StringLength", "options" : {"min" : 11, "max" : "64"}})
      */
     private $name;
+
+    /**
+     * @Annotation\Type("Zend\Form\Element\Submit")
+     * @Annotation\Attributes({"id" : "btn_submit", "class" : "btn btn-primary", "value" : "save"})
+     * @Annotation\AllowEmpty({"allowempty" : "true"})
+     */
+    public $submit;
 
 
 
