@@ -68,4 +68,9 @@ abstract class AbstractApiController extends BaseController
         $this->response->setStatusCode(405);
         $this->response->setContent(Json::encode(array('message' => 'Method is not allowed')));
     }
+
+    protected function send404($message = 'Record not found') {
+        $this->response->setStatusCode(404);
+        $this->response->setContent(Json::encode(array('message' => $message)));
+    }
 }
