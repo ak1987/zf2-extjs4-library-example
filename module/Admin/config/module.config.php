@@ -11,7 +11,7 @@ return array(
     'router' => array(
         'routes' => array(
             'admin' => array(
-                'type' => 'Segment',
+                'type' => 'segment',
                 'options' => array(
                     'route'    => '/admin/[:action/]',
                     'constrains' => array(
@@ -23,6 +23,20 @@ return array(
                     ),
                 ),
             ),
+            // API routes
+            'authors' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/admin/api/authors/[:id/]',
+                    'constrains' => array(
+                        'id' => '[0-9]*'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\AuthorsRest',
+                        'action'     => 'index',
+                    ),
+                ),
+            )
         ),
     ),
     'service_manager' => array(
@@ -46,7 +60,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Admin\Controller\Index' => 'Admin\Controller\IndexController'
+            'Admin\Controller\Index' => 'Admin\Controller\IndexController',
+            'Admin\Controller\AuthorsRest' => 'Admin\Controller\AuthorsRestController'
         ),
     ),
     'view_manager' => array(
