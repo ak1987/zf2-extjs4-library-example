@@ -64,6 +64,9 @@ return array(
             'Admin\Controller\AuthorsRest' => 'Admin\Controller\AuthorsRestController'
         ),
     ),
+    'module_layouts' => array(
+        'Admin' => 'layout/admin-layout'
+    ),
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
