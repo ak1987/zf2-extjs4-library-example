@@ -32,7 +32,7 @@ return array(
                         'id' => '[0-9]*'
                     ),
                     'defaults' => array(
-                        'controller' => 'Admin\Controller\AuthorsRest',
+                        'controller' => 'Admin\Controller\ApiAuthors',
                         'action'     => 'index',
                     ),
                 ),
@@ -61,7 +61,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
-            'Admin\Controller\AuthorsRest' => 'Admin\Controller\AuthorsRestController'
+            'Admin\Controller\ApiAuthors' => 'Admin\Controller\ApiAuthorsController'
         ),
     ),
     'module_layouts' => array(
