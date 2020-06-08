@@ -25,7 +25,7 @@ Ext.define('LibraryApp.view.AuthorList' ,{
 
   initComponent: function() {
     this.columns = [
-      {header: 'Имя',  dataIndex: 'name',  flex: 1}
+      {header: 'Name',  dataIndex: 'name',  flex: 1}
     ];
 
     this.callParent(arguments);
