@@ -12,7 +12,6 @@ Ext.define('LibraryApp.view.Author', {
   },
 
   initComponent: function () {
-    console.log(this.config.isNew);
     // separating for create and update entity windows
     this.items = [{
       xtype: 'form',
@@ -24,23 +23,26 @@ Ext.define('LibraryApp.view.Author', {
     }];
     this.buttons = [
       {
-        text: 'Clear',
-        scope: this,
-        action: 'clear'
+        text: 'Add',
+        action: 'new'
       },
       {
-        text: 'Add',
-        iconCls: 'save-icon',
-        action: 'new'
+        text: 'Clear',
+        action: 'clear'
       }
     ];
 
     // additional for update
     if(!this.config.isNew) {
+      this.title = 'Edit Author';
       this.buttons = [
         {
+          text: 'Delete',
+          iconCls: 'delete-icon',
+          action: 'delete'
+        },
+        {
           text: 'Clear',
-          scope: this,
           action: 'clear'
         },
         {

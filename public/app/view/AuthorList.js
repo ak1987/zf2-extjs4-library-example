@@ -5,6 +5,14 @@ Ext.define('LibraryApp.view.AuthorList' ,{
   title: 'Authors',
   store: 'AuthorStore',
   dockedItems: [{
+    xtype: 'pagingtoolbar',
+    store: 'AuthorStore',
+    dock: 'bottom',
+    displayInfo: true,
+    beforePageText: 'Page',
+    afterPageText: 'of {0}',
+    displayMsg: 'Records {0} - {1} of {2}'
+  },{
     xtype: 'toolbar',
     dock: 'bottom',
     items: [{
@@ -12,14 +20,6 @@ Ext.define('LibraryApp.view.AuthorList' ,{
       text: 'Add New',
       action: 'new'
     }]
-  },{
-    xtype: 'pagingtoolbar',
-    store: 'AuthorStore',
-    dock: 'bottom',
-    displayInfo: true,
-    beforePageText: 'Страница',
-    afterPageText: 'из {0}',
-    displayMsg: 'Пользователи {0} - {1} из {2}'
   }],
   renderTo: Ext.getBody(),
 

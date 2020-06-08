@@ -27,9 +27,10 @@ return array(
             'authors' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route'    => '/admin/api/authors/[:id/]',
+                    'route'    => '/admin/api/authors/[:action/][:id/]',
                     'constrains' => array(
-                        'id' => '[0-9]*'
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Admin\Controller\ApiAuthors',
