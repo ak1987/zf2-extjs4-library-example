@@ -2,7 +2,7 @@ Ext.define('LibraryApp.store.AuthorStore', {
   extend: 'Ext.data.Store',
   model: 'LibraryApp.model.Author',
   autoLoad: true,
-  pageSize: 2,
+  pageSize: 5,
   storeId: 'AuthorStore',
   proxy: {
     type: 'ajax',
